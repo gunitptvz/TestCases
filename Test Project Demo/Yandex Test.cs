@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Test_Project_Demo
 {
     [TestFixture]
+    [Parallelizable]
     public class YandexTest
     {
         [Test]
@@ -24,13 +25,13 @@ namespace Test_Project_Demo
             Console.WriteLine("Testing sending emails");
         }
 
-        [SetUp]
+        [SetUp] // Before executing every test case.
         public void OpenBrowser()
         {
             Console.WriteLine("Opening browser");
         }
 
-        [TearDown]
+        [TearDown] // After executing every test case.
         public void CloseBrowser()
         {
             Console.WriteLine("Closing browser");

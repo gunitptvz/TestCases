@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Test_Project_Demo
 {
     [TestFixture]
+    [Parallelizable]
     public class SampleTest
     {
         [Test] // testApp is our Test Case
