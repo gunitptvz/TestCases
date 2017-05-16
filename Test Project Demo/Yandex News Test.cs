@@ -35,7 +35,7 @@ namespace Test_Project_Demo
 
             try
             {
-                Assert.IsTrue(4 < 2, "Error msg");
+                Assert.IsTrue(4 < 3, "Error msg");
                 // Assert.IsFalse(3>8, "Error msg");
             }
             catch (Exception e)
