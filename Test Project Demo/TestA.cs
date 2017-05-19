@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using RelevantCodes.ExtentReports;
+using RelevantCodes.ExtentReports.Model;
 
 namespace Test_Project_Demo
 {
     [TestFixture]
     public class TestA : BaseTest
     {
-        [Test]
+        [NUnit.Framework.Test]
         public void TestMethod()
         {
             ExtentTest test = extent.StartTest("Test A", "Sample Description");
@@ -24,15 +25,14 @@ namespace Test_Project_Demo
             {
                 driver.Url = "http://www.seleniumhq.org/";
                 driver.Manage().Window.Maximize();
-                IWebElement element = driver.FindElement(By.XPath(".//li[@id='menu_download']"));
+                IWebElement element = driver.FindElement(By.XPath(".//li[@id='menu_downloa']"));
                 element.Click();
             }
             catch (Exception e)
             {
                 TakeScreenshot("Error Screenshot", driver);
                 test.Log(LogStatus.Info, "Screenshot - " + test.AddScreenCapture("D:\\Загрузки\\Error Screenshot.gif"));
-                Console.WriteLine("Element isn't found");
-                Console.WriteLine(e.Message);
+                test.Log(LogStatus.Fail, e.Message);
 
                 extent.EndTest(test);
                 extent.Flush();
